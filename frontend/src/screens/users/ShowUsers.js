@@ -10,14 +10,14 @@ class ShowUsers extends Component {
     if(this.props.users){
         users= this.props.users.map(user => {
           return(
-            <div><User handleDelete={this.handleDelete.bind(this)}key={user.id} user={user}/></div>
+            <div><User handleDelete={this.handleDelete.bind(this)} key={user.id} user={user}/></div>
           );
         });
     }
     return (
       <div className="ShowUsers">
         <div>
-            <h2>User Management Home Page</h2>
+            <h3>Users</h3>
             <h3>{users}</h3>
         </div>
       </div>

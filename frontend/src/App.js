@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Login from "./screens/Login";
 import ShowUsers from "./screens/users/ShowUsers";
 import AddUser from "./screens/users/AddUser";
+import LoginSection from "./screens/users/LoginSection";
 import $ from 'jquery';
 import './App.css';
 
@@ -10,7 +10,7 @@ class App extends Component {
     super();
     this.state = {
       users:[]
-    }
+     }
   }
 
   getUsers(){
@@ -71,14 +71,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to User Management</h1>
-        </header>
-        <div>
-          <Login />;
+        <div class="container-fluid">
+          <LoginSection/>
+          {/* <div><ShowUsers handleDelete={this.handleDelete.bind(this)} users={this.state.users}/></div>
+          <div><AddUser addUser={this.handleAddUser.bind(this)}/></div> */}
         </div>
-        <div><ShowUsers handleDelete={this.handleDelete.bind(this)} users={this.state.users}/></div>
-        <div><AddUser addUser={this.handleAddUser.bind(this)}/></div>
       </div>
     );
   }
