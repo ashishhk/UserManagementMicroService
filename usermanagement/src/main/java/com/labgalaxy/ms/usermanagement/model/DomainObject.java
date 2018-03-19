@@ -1,4 +1,4 @@
-package com.labgalaxy.ms.usermanagement.domain;
+package com.labgalaxy.ms.usermanagement.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

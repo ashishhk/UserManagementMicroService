@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Popup from "reactjs-popup";
 
-class SignUp extends Component {
+class CaptureBusinessData extends Component {
   constructor(){
     super();
     this.state = {
@@ -21,7 +21,7 @@ class SignUp extends Component {
   render() {
     return (
       <Popup open={this.state.open} closeOnDocumentClick onClose={this.closeModal}>
-        <div className="SignUp">
+        <div className="CaptureBusinessData">
             <a className="close" onClick={this.closeModal}>&times;</a>
             <p class="text-primary">Fill in some information and get some more customers to delight your business.. :)</p>
             <form onSubmit={this.handleSubmit.bind(this)}>
@@ -48,31 +48,31 @@ class SignUp extends Component {
                 </div>
               </div>
               <div class="form-row">
-                <label class="text-secondary" for="gridCheck">Please Select Your Businesses</label>
+                <label class="text-secondary">Please Select Your Businesses</label>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-2">
                   <input class="form-check-input" type="checkbox" id="eventHall"/>
-                  <label class="form-check-label" for="gridCheck">Event Hall</label>
+                  <label class="form-check-label" htmlFor="gridCheck">Event Hall</label>
                 </div>
                 <div class="fform-group col-md-2">
                   <input class="form-check-input" type="checkbox" id="caterer"/>
-                  <label class="form-check-label" for="gridCheck">Caterer</label>
+                  <label class="form-check-label" htmlFor="gridCheck">Caterer</label>
                 </div>
                 <div class="form-group col-md-2">
                   <input class="form-check-input" type="checkbox" id="photographer"/>
-                  <label class="form-check-label" for="gridCheck">Photographer</label>
+                  <label class="form-check-label" htmlFor="gridCheck">Photographer</label>
                 </div>
               </div>
               <div class="form-group">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="gridCheck"/>
-                  <label class="form-check-label" for="gridCheck">
+                  <label class="form-check-label" htmlFor="gridCheck">
                     Check me out
                   </label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-primary">Proceed</button>
             </form>
           </div>
       </Popup>
@@ -80,4 +80,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default CaptureBusinessData;

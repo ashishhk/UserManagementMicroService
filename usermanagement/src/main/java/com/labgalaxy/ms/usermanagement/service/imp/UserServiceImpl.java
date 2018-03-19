@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.labgalaxy.ms.usermanagement.domain.User;
+import com.labgalaxy.ms.usermanagement.model.user.User;
 import com.labgalaxy.ms.usermanagement.repository.UserDAO;
 import com.labgalaxy.ms.usermanagement.service.UserService;
 

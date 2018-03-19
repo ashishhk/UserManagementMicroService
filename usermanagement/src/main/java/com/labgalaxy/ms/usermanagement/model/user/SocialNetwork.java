@@ -1,7 +1,9 @@
-package com.labgalaxy.ms.usermanagement.domain;
+package com.labgalaxy.ms.usermanagement.model.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
+import com.labgalaxy.ms.usermanagement.model.DomainObject;
 
 @Entity
 public class SocialNetwork extends DomainObject {

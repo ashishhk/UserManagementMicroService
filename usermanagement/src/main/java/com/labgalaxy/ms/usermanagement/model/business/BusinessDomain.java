@@ -1,0 +1,30 @@
+package com.labgalaxy.ms.usermanagement.model.business;
+
+public enum BusinessDomain {
+	CarRentalCompanies,
+	Videographers,
+	Photographers,
+	Decorators,
+	DoliRental,
+	JewelrySalons,
+	Accessories,
+	Ceremony,
+	Fireworks,
+	Сatering,
+	BanquetHalls,
+	Emcees,
+	Stylists,
+	Saree,
+	Sherwani,
+	TentRental,
+	Bands,
+	DJ,
+	Cakes,
+	WeddingPlanners,
+	Astrologers,
+	Mehendi,
+	Bouquets,
+	PhotoBooths,
+	Entertainers,
+	Сhoreographers
+}

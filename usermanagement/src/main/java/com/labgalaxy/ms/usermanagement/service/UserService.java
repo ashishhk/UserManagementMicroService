@@ -2,7 +2,7 @@ package com.labgalaxy.ms.usermanagement.service;
 
 import java.util.Collection;
 
-import com.labgalaxy.ms.usermanagement.domain.User;
+import com.labgalaxy.ms.usermanagement.model.user.User;
 
 public interface UserService extends AbstractDomainObjectService<User> {
 

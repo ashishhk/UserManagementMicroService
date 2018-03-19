@@ -5,9 +5,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.labgalaxy.ms.usermanagement.domain.Group;
-import com.labgalaxy.ms.usermanagement.domain.User;
-import com.labgalaxy.ms.usermanagement.domain.UserType;
+import com.labgalaxy.ms.usermanagement.model.business.BusinessGroup;
+import com.labgalaxy.ms.usermanagement.model.user.User;
+import com.labgalaxy.ms.usermanagement.model.user.UserType;
 import com.labgalaxy.ms.usermanagement.repository.GroupRepository;
 import com.labgalaxy.ms.usermanagement.service.GroupService;
 
@@ -17,51 +17,51 @@ public class GroupServiceImpl implements GroupService {
 	@Autowired
 	private GroupRepository groupRepository;
 
-	public Group getGroupByName(String name) {
+	public BusinessGroup getGroupByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Group save(Group group) {
+	public BusinessGroup save(BusinessGroup group) {
 		return groupRepository.save(group);
 	}
 
-	public Collection<Group> getGroupByAdminUser(User user) {
+	public Collection<BusinessGroup> getGroupByAdminUser(User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Collection<Group> getGroupByMemberUser(User user) {
+	public Collection<BusinessGroup> getGroupByMemberUser(User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void addUserToGroup(User user, Group group, UserType memberShipType) {
+	public void addUserToGroup(User user, BusinessGroup group, UserType memberShipType) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void removeUserFromGroup(User user, Group group, UserType memberShipType) {
+	public void removeUserFromGroup(User user, BusinessGroup group, UserType memberShipType) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void removeUserFromGroup(User user, Group group) {
+	public void removeUserFromGroup(User user, BusinessGroup group) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public Collection<Group> findAll() {
+	public Collection<BusinessGroup> findAll() {
 		return groupRepository.findAll();
 	}
 
 	@Override
-	public Group findById(Long id) {
+	public BusinessGroup findById(Long id) {
 		return groupRepository.findOne(id);
 	}
 
 	@Override
-	public Group updateComplete(Group group, Long groupId) {
+	public BusinessGroup updateComplete(BusinessGroup group, Long groupId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -71,7 +71,7 @@ public class GroupServiceImpl implements GroupService {
 		remove(findById(userId));
 	}
 
-	public void remove(Group group) {
+	public void remove(BusinessGroup group) {
 		groupRepository.delete(group);
 	}
 }

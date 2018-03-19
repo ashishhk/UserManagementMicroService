@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.labgalaxy.ms.usermanagement.domain.Group;
-import com.labgalaxy.ms.usermanagement.domain.Message;
-import com.labgalaxy.ms.usermanagement.domain.User;
+import com.labgalaxy.ms.usermanagement.model.Message;
+import com.labgalaxy.ms.usermanagement.model.business.BusinessGroup;
+import com.labgalaxy.ms.usermanagement.model.user.User;
 import com.labgalaxy.ms.usermanagement.service.GroupService;
 import com.labgalaxy.ms.usermanagement.service.UserService;
 
@@ -33,21 +33,21 @@ public class GroupController {
 
 	@GetMapping
 	public String sayDefaultMessage() {
-		return Message.DEFAULT_MESSAGE;
+		return Message.DEFAULT_MESSAGE_TEST;
 	}
 
 	@PostMapping("/create")
-	public Group createUser(@Valid @RequestBody Group group) {
+	public BusinessGroup createUser(@Valid @RequestBody BusinessGroup group) {
 		return groupService.save(group);
 	}
 
 	@GetMapping("/getById/{id}")
-	public Group getUserById(@PathVariable(value = "id") Long groupId) {
+	public BusinessGroup getUserById(@PathVariable(value = "id") Long groupId) {
 		return groupService.findById(groupId);
 	}
 
 	@PutMapping("/update/{id}")
-	public Group updateUserById(@RequestBody Group group, @PathVariable(value = "id") Long groupId) {
+	public BusinessGroup updateUserById(@RequestBody BusinessGroup group, @PathVariable(value = "id") Long groupId) {
 		return groupService.updateComplete(group, groupId);
 	}
 
@@ -63,7 +63,7 @@ public class GroupController {
 	}
 
 	@GetMapping("/getAll")
-	public Collection<Group> getAllUsers() {
+	public Collection<BusinessGroup> getAllUsers() {
 		return groupService.findAll();
 	}
 }

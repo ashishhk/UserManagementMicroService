@@ -1,4 +1,4 @@
-package com.labgalaxy.ms.usermanagement.domain;
+package com.labgalaxy.ms.usermanagement.model.user;
 
 import java.util.Date;
 
@@ -11,6 +11,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.labgalaxy.ms.usermanagement.model.DomainObject;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)

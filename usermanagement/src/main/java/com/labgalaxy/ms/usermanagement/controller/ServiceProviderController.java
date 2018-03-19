@@ -21,8 +21,8 @@ import com.labgalaxy.ms.usermanagement.model.user.User;
 import com.labgalaxy.ms.usermanagement.service.UserService;
 
 @RestController
-@RequestMapping("/rest/v1/user")
-public class UserController {
+@RequestMapping("/rest/v1/serviceprovider")
+public class ServiceProviderController {
 
 	@Autowired
 	UserService userService;
@@ -63,5 +63,6 @@ public class UserController {
 	public Collection<User> getAllUsers() {
 		return userService.findAll();
 	}
+
 
 }
