@@ -8,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import com.labgalaxy.ms.usermanagement.model.DomainObject;
 import com.labgalaxy.ms.usermanagement.model.user.User;
 
-@Entity(name = "business_groups")
+@Entity
 public class BusinessGroup extends DomainObject implements Serializable {
 
 	/**
@@ -29,10 +30,12 @@ public class BusinessGroup extends DomainObject implements Serializable {
 		super.setId(id);
 	}
 	
+	@OneToOne
+    @JoinColumn(name="business_basic_detail_id")
 	private BusinessBasicDetail basicDetails;
 	
 	@ManyToMany
-	@JoinTable(name = "group_user", joinColumns = {
+	@JoinTable(name = "businessgroup_user", joinColumns = {
 			@JoinColumn(name = "groupId", nullable = false, updatable = false, referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "userId", nullable = false, updatable = false, referencedColumnName = "id") })
 	private Set<User> memberUsers;
