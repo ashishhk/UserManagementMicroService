@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.labgalaxy.ms.usermanagement.model.user.User;
-import com.labgalaxy.ms.usermanagement.repository.UserDAO;
+import com.labgalaxy.ms.usermanagement.repository.UserRepository;
 import com.labgalaxy.ms.usermanagement.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserRepository userDAO;
 
 	public User getUserByEmail(String email) {
 		return null;

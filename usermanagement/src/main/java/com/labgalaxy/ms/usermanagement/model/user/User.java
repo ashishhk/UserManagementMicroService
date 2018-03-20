@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 
-@Entity(name = "users")
+@Entity(name = "user")
 public class User extends Person implements Serializable {
 
 	/**
@@ -21,6 +22,17 @@ public class User extends Person implements Serializable {
 
 	@Column
 	private String parentUser;
+	
+	@Enumerated
+	private UserType type;
+
+	public UserType getType() {
+		return type;
+	}
+
+	public void setType(UserType type) {
+		this.type = type;
+	}
 
 	@Column(name = "userId", updatable = false, nullable = false)
 	public Long getId() {

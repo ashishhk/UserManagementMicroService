@@ -3,6 +3,7 @@ package com.labgalaxy.ms.usermanagement.model.user;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
@@ -29,12 +30,11 @@ public abstract class Person extends DomainObject {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateOfBirth;
-
-	@Column
-	private String emailId;
-
-	@Column
-	private Long mobileNumber;
+	
+	
+	
+	@Embedded
+	private PersonBasicDetail basicDetails;
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -72,21 +72,4 @@ public abstract class Person extends DomainObject {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public Long getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(Long mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
-
 }

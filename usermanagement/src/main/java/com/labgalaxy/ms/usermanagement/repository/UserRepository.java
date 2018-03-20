@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.labgalaxy.ms.usermanagement.model.user.User;
 
 @Repository
-public interface UserDAO extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }

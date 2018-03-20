@@ -2,14 +2,22 @@ package com.labgalaxy.ms.usermanagement.service.imp;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.labgalaxy.ms.usermanagement.model.business.BusinessGroup;
+import com.labgalaxy.ms.usermanagement.repository.BusinessGroupRepository;
 import com.labgalaxy.ms.usermanagement.service.BusinessGroupService;
 
+@Service
 public class BusinessGroupServiceImpl implements BusinessGroupService {
 
+	@Autowired
+	BusinessGroupRepository businessGroupRepo;
+	
 	@Override
-	public BusinessGroup save(BusinessGroup object) {
-		// TODO Auto-generated method stub
+	public BusinessGroup save(BusinessGroup businessGroup) {
+		businessGroupRepo.save(businessGroup);
 		return null;
 	}
 
@@ -21,8 +29,7 @@ public class BusinessGroupServiceImpl implements BusinessGroupService {
 
 	@Override
 	public BusinessGroup findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return businessGroupRepo.findOne(id);
 	}
 
 	@Override

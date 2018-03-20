@@ -5,10 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "address")
-public class Address extends DomainObject {
+@Table(name = "mail_address")
+public class MailAddress extends DomainObject implements Contact{
 
 	@Column(name = "id", updatable = false, nullable = false)
+	
 	public Long getId() {
 		return super.getId();
 	}
@@ -22,6 +23,16 @@ public class Address extends DomainObject {
 	private String pincode;
 	private String state;
 	private String country;
+	private AddressType type;
+	
+	
+	public AddressType getType() {
+		return type;
+	}
+
+	public void setType(AddressType type) {
+		this.type = type;
+	}
 
 	public String getAddressLine() {
 		return addressLine;
