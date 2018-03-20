@@ -18,7 +18,7 @@ public abstract class EntityBasicDetail {
 					@JoinColumn(name = "contactdetail_id", nullable = false, updatable = false, referencedColumnName = "id") })
 	private Set<DigitalContact> contacts = new HashSet<DigitalContact>();
 	
-	@OneToOne
+	@ManyToMany
 	@JoinColumn(name="address_id")
 	private Set<MailAddress> address = new HashSet<MailAddress>();
 	
