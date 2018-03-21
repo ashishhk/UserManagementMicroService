@@ -2,6 +2,7 @@ package com.labgalaxy.ms.usermanagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
@@ -9,7 +10,6 @@ import javax.persistence.Table;
 public class MailAddress extends DomainObject implements Contact{
 
 	@Column(name = "id", updatable = false, nullable = false)
-	
 	public Long getId() {
 		return super.getId();
 	}
@@ -18,11 +18,18 @@ public class MailAddress extends DomainObject implements Contact{
 		super.setId(id);
 	}
 
+	
+	@Column
 	private String addressLine;
+	@Column
 	private String city;
+	@Column
 	private String pincode;
+	@Column
 	private String state;
+	@Column
 	private String country;
+	@Enumerated
 	private AddressType type;
 	
 	

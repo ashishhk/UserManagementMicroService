@@ -2,22 +2,23 @@ package com.labgalaxy.ms.usermanagement.model.user;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.labgalaxy.ms.usermanagement.model.DomainObject;
 
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
-public abstract class Person extends DomainObject {
+@Entity
+@Table(name="person")
+public class Person extends DomainObject {
 
 	@Column
 	@NotBlank
@@ -31,7 +32,8 @@ public abstract class Person extends DomainObject {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateOfBirth;
 	
-	
+	@OneToOne(cascade=CascadeType.ALL)
+	private User user;
 	
 	@Embedded
 	private PersonBasicDetail basicDetails;
@@ -40,6 +42,22 @@ public abstract class Person extends DomainObject {
 	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
 	private Date updatedAt;
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public PersonBasicDetail getBasicDetails() {
+		return basicDetails;
+	}
+
+	public void setBasicDetails(PersonBasicDetail basicDetails) {
+		this.basicDetails = basicDetails;
+	}
 
 	public Date getUpdatedAt() {
 		return updatedAt;

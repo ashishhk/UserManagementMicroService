@@ -5,33 +5,27 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.labgalaxy.ms.usermanagement.model.DomainObject;
-import com.labgalaxy.ms.usermanagement.model.user.User;
+import com.labgalaxy.ms.usermanagement.model.user.Person;
 
 @Entity
 @Table(name = "business")
 public class Business extends DomainObject implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="business_id")
+	@Embedded
 	private BusinessBasicDetail basicDetails;
 	
-	@Column
 	@Enumerated
 	private BusinessDomain domain;
 	
@@ -40,10 +34,10 @@ public class Business extends DomainObject implements Serializable{
 	private ServiceArea serviceArea;
 	
 	@ManyToMany
-	@JoinTable(name = "business_user", joinColumns = {
+	@JoinTable(name = "business_person", joinColumns = {
 			@JoinColumn(name = "business_id", nullable = false, updatable = false, referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "user_Id", nullable = false, updatable = false, referencedColumnName = "id") })
-	private Set<User> memberUsers = new HashSet<User>();
+					@JoinColumn(name = "person_Id", nullable = false, updatable = false, referencedColumnName = "id") })
+	private Set<Person> contactPeople = new HashSet<Person>();
 
 	public BusinessBasicDetail getBasicDetails() {
 		return basicDetails;
@@ -67,5 +61,14 @@ public class Business extends DomainObject implements Serializable{
 
 	public void setServiceArea(ServiceArea serviceArea) {
 		this.serviceArea = serviceArea;
+	}
+	
+	
+	public Set<Person> getContactPeople() {
+		return contactPeople;
+	}
+
+	public void setContactPeople(Set<Person> contactPeople) {
+		this.contactPeople = contactPeople;
 	}
 }

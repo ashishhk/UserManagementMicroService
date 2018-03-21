@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 
+import com.labgalaxy.ms.usermanagement.model.DomainObject;
+
 @Entity(name = "user")
-public class User extends Person implements Serializable {
+public class User extends DomainObject implements Serializable {
 
 	/**
 	 * 

@@ -12,7 +12,6 @@ public class DigitalContact extends DomainObject implements Contact{
 	@Column
 	private String contact;
 	
-	@Column
 	@Enumerated
 	private ContactType type;
 	

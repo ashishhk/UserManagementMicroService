@@ -7,7 +7,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
 
 @MappedSuperclass
 public abstract class EntityBasicDetail {
