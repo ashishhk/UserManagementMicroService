@@ -11,7 +11,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.labgalaxy.ms.usermanagement.model.DomainObject;
@@ -29,14 +28,14 @@ public class Business extends DomainObject implements Serializable{
 	@Enumerated
 	private BusinessDomain domain;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="area_name")
-	private ServiceArea serviceArea;
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="business_service_area")
+	@JoinColumn(name="servicearea_id")
+	private Set<ServiceArea> serviceArea;
 	
-	@ManyToMany
-	@JoinTable(name = "business_person", joinColumns = {
-			@JoinColumn(name = "business_id", nullable = false, updatable = false, referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "person_Id", nullable = false, updatable = false, referencedColumnName = "id") })
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="business_people")
+	@JoinColumn(name="person_id")
 	private Set<Person> contactPeople = new HashSet<Person>();
 
 	public BusinessBasicDetail getBasicDetails() {
@@ -54,16 +53,15 @@ public class Business extends DomainObject implements Serializable{
 	public void setDomain(BusinessDomain domain) {
 		this.domain = domain;
 	}
-
-	public ServiceArea getServiceArea() {
+	
+	public Set<ServiceArea> getServiceArea() {
 		return serviceArea;
 	}
 
-	public void setServiceArea(ServiceArea serviceArea) {
+	public void setServiceArea(Set<ServiceArea> serviceArea) {
 		this.serviceArea = serviceArea;
 	}
-	
-	
+
 	public Set<Person> getContactPeople() {
 		return contactPeople;
 	}

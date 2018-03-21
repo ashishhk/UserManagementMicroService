@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.labgalaxy.ms.usermanagement.model.DomainObject;
@@ -22,12 +21,9 @@ import com.labgalaxy.ms.usermanagement.model.user.Person;
 @Table(name = "business_group")
 public class BusinessGroup extends DomainObject implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "business_group_id", updatable = false, nullable = false)
+	@Column(name = "id", updatable = false, nullable = false)
 	public Long getId() {
 		return super.getId();
 	}
@@ -39,24 +35,19 @@ public class BusinessGroup extends DomainObject implements Serializable {
 	@Embedded
 	private BusinessBasicDetail basicDetails;
 	
-	@ManyToMany
-	@JoinTable(name = "business_group_user", joinColumns = {
-			@JoinColumn(name = "business_group_id", nullable = false, updatable = false, referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "user_Id", nullable = false, updatable = false, referencedColumnName = "id") })
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="businessgroup_people")
+	@JoinColumn(name="person_id")
 	private Set<Person> contactPeople = new HashSet<Person>();
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="businessgroup_group")
+	private Set<BusinessGroup> subBusinessGroups;
 	
-	//private Set<ServiceArea> serviceArea;
-	
-	/*@Enumerated
-	@OneToMany
-	@JoinTable(name = "business_group_domains", joinColumns = {
-			@JoinColumn(name = "business_group_Id", nullable = false, updatable = false, referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "userId", nullable = false, updatable = false, referencedColumnName = "id") })
-	private Set<BusinessDomain> domains;*/
-	
-	//private Set<BusinessGroup> subBusinessGroups;
-	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="business_group_id")
+	private Set<Business> businesses = new HashSet<Business>();
+
 	public Set<Person> getContactPeople() {
 		return contactPeople;
 	}
@@ -64,17 +55,7 @@ public class BusinessGroup extends DomainObject implements Serializable {
 	public void setContactPeople(Set<Person> contactPeople) {
 		this.contactPeople = contactPeople;
 	}
-
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinTable(name = "businessgroup_business", joinColumns = {
-			@JoinColumn(name = "business_group_id", nullable = false, updatable = false, referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "business_id", nullable = false, updatable = false, referencedColumnName = "id") })
-	private Set<Business> businesses = new HashSet<Business>();
-
-	/* private Set<Long> groupAdministrators; */
-
 	
-
 	public BusinessBasicDetail getBasicDetails() {
 		return basicDetails;
 	}
@@ -83,29 +64,13 @@ public class BusinessGroup extends DomainObject implements Serializable {
 		this.basicDetails = basicDetails;
 	}
 
-	/*public Set<ServiceArea> getServiceArea() {
-		return serviceArea;
-	}
-
-	public void setServiceArea(Set<ServiceArea> serviceArea) {
-		this.serviceArea = serviceArea;
-	}*/
-
-	/*public Set<BusinessDomain> getDomainArea() {
-		return domains;
-	}
-
-	public void setDomainArea(Set<BusinessDomain> domainArea) {
-		this.domains = domainArea;
-	}*/
-
-	/*public Set<BusinessGroup> getSubBusinessGroups() {
+	public Set<BusinessGroup> getSubBusinessGroups() {
 		return subBusinessGroups;
 	}
 
 	public void setSubBusinessGroups(Set<BusinessGroup> subBusinessGroups) {
 		this.subBusinessGroups = subBusinessGroups;
-	}*/
+	}
 
 	public Set<Business> getBusinesses() {
 		return businesses;

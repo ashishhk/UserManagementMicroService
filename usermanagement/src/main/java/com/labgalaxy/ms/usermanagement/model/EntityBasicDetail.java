@@ -3,30 +3,28 @@ package com.labgalaxy.ms.usermanagement.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class EntityBasicDetail {
 
-	@ManyToMany
-	@JoinTable(name = "business_contact", joinColumns = {
-			@JoinColumn(name = "business_basic_detail_id", nullable = false, updatable = false, referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "contactdetail_id", nullable = false, updatable = false, referencedColumnName = "id") })
-	private Set<DigitalContact> contacts = new HashSet<DigitalContact>();
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="contact_id")
+	private Set<DigitalContact> contact = new HashSet<DigitalContact>();
 	
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="address_id")
 	private Set<MailAddress> address = new HashSet<MailAddress>();
 	
 	public Set<DigitalContact> getContacts() {
-		return contacts;
+		return contact;
 	}
 
-	public void setContacts(Set<DigitalContact> contacts) {
-		this.contacts = contacts;
+	public void setContacts(Set<DigitalContact> contact) {
+		this.contact = contact;
 	}
 
 	public Set<MailAddress> getAddress() {

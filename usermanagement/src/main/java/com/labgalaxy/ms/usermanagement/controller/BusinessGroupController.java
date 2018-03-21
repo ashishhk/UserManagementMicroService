@@ -1,7 +1,5 @@
 package com.labgalaxy.ms.usermanagement.controller;
 
-import java.util.Set;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.labgalaxy.ms.usermanagement.model.Message;
-import com.labgalaxy.ms.usermanagement.model.business.Business;
-import com.labgalaxy.ms.usermanagement.model.business.BusinessBasicDetail;
 import com.labgalaxy.ms.usermanagement.model.business.BusinessGroup;
-import com.labgalaxy.ms.usermanagement.model.user.User;
 import com.labgalaxy.ms.usermanagement.service.BusinessGroupService;
 
 @RestController
