@@ -20,4 +20,6 @@ public interface UserService extends AbstractDomainObjectService<User> {
 
 	public User updateComplete(User user, Long userId);
 
+	public User findByUserName(String userName);
+
 }

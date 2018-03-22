@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.labgalaxy.ms.usermanagement.model.Message;
+import com.labgalaxy.ms.usermanagement.model.user.Person;
 import com.labgalaxy.ms.usermanagement.model.user.User;
 import com.labgalaxy.ms.usermanagement.service.UserService;
 
@@ -37,9 +38,16 @@ public class UserController {
 		return userService.save(user);
 	}
 
-	@GetMapping("/getById/{id}")
-	public User getUserById(@PathVariable(value = "id") Long userId) {
-		return userService.findById(userId);
+	@PostMapping("/login")
+	public Person login(@Valid @RequestBody String userName,String password) {
+		
+		//return userService.save(user);
+		return new Person();
+	}
+	
+	@GetMapping("/getByUserName/{userName}")
+	public User getUserById(@PathVariable(value = "userName") String userName) {
+		return userService.findByUserName(userName);
 	}
 
 	@PutMapping("/update/{id}")
@@ -58,7 +66,7 @@ public class UserController {
 		userService.removeById(userId);
 	}
 
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:3001")
 	@GetMapping("/getAll")
 	public Collection<User> getAllUsers() {
 		return userService.findAll();

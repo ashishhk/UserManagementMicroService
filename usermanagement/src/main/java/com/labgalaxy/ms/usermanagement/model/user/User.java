@@ -5,17 +5,17 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
-
-import com.labgalaxy.ms.usermanagement.model.DomainObject;
+import javax.persistence.Id;
 
 @Entity(name = "user")
-public class User extends DomainObject implements Serializable {
+public class User implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	@Column
 	private String userName;
 
@@ -34,15 +34,6 @@ public class User extends DomainObject implements Serializable {
 
 	public void setType(UserType type) {
 		this.type = type;
-	}
-
-	@Column(name = "userId", updatable = false, nullable = false)
-	public Long getId() {
-		return super.getId();
-	}
-
-	public void setId(Long id) {
-		super.setId(id);
 	}
 	// private Map<Long,UserType> groupMembershipType;
 

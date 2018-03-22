@@ -48,4 +48,9 @@ public class UserServiceImpl implements UserService {
 		return userDAO.save(user);
 	}
 
+	@Override
+	public User findByUserName(String userName) {
+		return userDAO.findByUserName(userName);
+	}
+
 }

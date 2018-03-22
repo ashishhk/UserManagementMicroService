@@ -8,4 +8,5 @@ import com.labgalaxy.ms.usermanagement.model.user.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	User findByUserName(String userName);
 }

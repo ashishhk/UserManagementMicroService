@@ -16,6 +16,10 @@ class Login extends Component {
     this.setState({ open: false });
     this.props.setDisplayFalse();
   };
+
+  handleSubmit(e){
+    
+  }
   render() {
     return (
       <Popup open={this.state.open} closeOnDocumentClick onClose={this.closeModal} >
@@ -27,10 +31,10 @@ class Login extends Component {
 					  <span class="h6 signup-or-separator--text">or</span>
 						  <hr/>
 					</div> */}
-          <form>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <h2>Login</h2>
             <div class="form-group">
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"/>  
             </div>
             <div class="form-group">
               <input type="password" class="form-control" id="passwords" placeholder="Password"/>
