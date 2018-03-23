@@ -24,13 +24,13 @@ class LoginSection extends Component {
   }
   render() {
     return (
-        <div class="LoginSection">
-           <ul class="nav justify-content-end"> 
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" onClick={this.signUpClick.bind(this)}>Are you a Business?</a>
+        <div className="LoginSection">
+           <ul className="nav justify-content-end"> 
+                <li className="nav-item">
+                    <a className="nav-link active" href="#" onClick={this.signUpClick.bind(this)}>Are you a Business?</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" onClick={this.logInClick.bind(this)}>Login</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#" onClick={this.logInClick.bind(this)}>Login</a>
                 </li>
             </ul>
             <div><SignUp setDisplayFalse={this.setDisplayFalse.bind(this)} signUpClick={this.state.signUpClick}/></div>

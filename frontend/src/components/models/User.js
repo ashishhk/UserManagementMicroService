@@ -13,7 +13,7 @@ class User extends Component {
   render() {
     return (
         <li>
-            {this.props.user.userName} {this.props.user.parentUser} {this.props.user.type} <a href="#" onClick={this.handleDelete.bind(this,this.props.user.id)}>Delete</a>
+            {this.props.user.userName} {this.props.user.parentUser} {this.props.user.type} <a href="#" onClick={this.handleDelete.bind(this,this.props.user.userName)}>Delete</a>
         </li>
     );
   }

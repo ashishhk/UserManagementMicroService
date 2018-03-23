@@ -17,7 +17,8 @@ class ShowUsers extends Component {
       dataType: 'json',
       cache:false,
       success: function(data){
-        this.setState({users:data},function(){
+          this.setState({users:data},function(){
+          console.log("hello");
         });
       }.bind(this),
       error: function(xhr,status,error){
@@ -62,7 +63,7 @@ class ShowUsers extends Component {
     if(this.state.users){
         users= this.state.users.map(user => {
           return(
-            <div><User handleDelete={this.handleDelete.bind(this)} key={user.id} user={user}/></div>
+            <div><User key={user.userName} handleDelete={this.handleDelete.bind(this)} user={user}/></div>
           );
         });
     }

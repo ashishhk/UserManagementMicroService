@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Business from "../../components/models/Business"
+import BusinessGroup from "../../components/models/BusinessGroup";
 import $ from 'jquery';
 
 class ShowBusinesses extends Component {
   constructor(){
       super();
       this.state = {
-          businessGroup:{},
+          businessGroup:{}
       }
   }
 
@@ -21,7 +21,6 @@ class ShowBusinesses extends Component {
         cache:false,
         success: function(data){
           this.setState({businessGroup:data},function(){
-            console.log(this.state);
           });
         }.bind(this),
         error: function(xhr,status,error){
@@ -45,7 +44,7 @@ class ShowBusinesses extends Component {
       <div className="ShowBusinesses">
         <div>
             <h3>Your Business List</h3>
-            <h3>{this.state.businessGroup.basicDetails.name}</h3>
+            <h3><BusinessGroup businessGroup={this.state.businessGroup}/></h3>
         </div>
       </div>
     );
