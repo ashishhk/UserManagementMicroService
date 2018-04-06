@@ -35,7 +35,7 @@ public class BusinessGroupController {
 		return businessGroupService.save(group);
 	}
 
-	//@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/getById/{id}")
 	public BusinessGroup getBusinessGroupById(@PathVariable(value = "id") Long groupId) {
 		return businessGroupService.findById(groupId);

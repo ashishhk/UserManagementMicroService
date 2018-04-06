@@ -10,7 +10,7 @@ componentWillMount(){
 render() {
     // console.log(this.props.basicDetails);
     return (
-        <li>Business Name {this.props.basicDetails}</li>
+        <li>Business Name {this.props.basicDetails.name}</li>
     );
   }
 }

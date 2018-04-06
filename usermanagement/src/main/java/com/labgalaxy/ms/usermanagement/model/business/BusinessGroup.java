@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -37,7 +38,11 @@ public class BusinessGroup extends DomainObject implements Serializable {
 	@Embedded
 	private BusinessBasicDetail basicDetails;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY,
+    cascade = {
+        CascadeType.PERSIST,
+        CascadeType.MERGE
+    })
 	@JoinTable(name="businessgroup_people")
 	@JoinColumn(name="person_id")
 	@Cascade(value = org.hibernate.annotations.CascadeType.MERGE)

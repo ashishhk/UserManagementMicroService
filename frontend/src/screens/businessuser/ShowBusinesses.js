@@ -20,7 +20,6 @@ class ShowBusinesses extends Component {
         dataType: 'json',
         cache:false,
         success: function(data){
-          console.log(data);
           this.setState({businessGroup:data});
         }.bind(this),
         error: function(xhr,status,error){
@@ -40,14 +39,16 @@ class ShowBusinesses extends Component {
     this.props.handleDelete(id);
   }
   render() {
-    if(this.state.businessGroup.basicDetails){
-      console.log(this.state.businessGroup.basicDetails);
+    var businessGroupDiv;
+    if(this.state.businessGroup.basicDetails) {
+      businessGroupDiv = <BusinessGroup businessGroup={this.state.businessGroup}/>;
     }
     return (
       <div className="ShowBusinesses">
         <div>
             <h3>Your Business List</h3>
-            <BusinessGroup businessGroup={this.state.businessGroup}/>
+            {businessGroupDiv}
+              
         </div>
       </div>
     );

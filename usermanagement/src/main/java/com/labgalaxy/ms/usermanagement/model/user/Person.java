@@ -32,7 +32,10 @@ public class Person extends DomainObject {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateOfBirth;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = {
+	        CascadeType.PERSIST,
+	        CascadeType.MERGE
+	    })
 	private User user;
 	
 	@Embedded

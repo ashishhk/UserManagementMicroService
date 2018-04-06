@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -28,12 +29,20 @@ public class Business extends DomainObject implements Serializable{
 	@Enumerated
 	private BusinessDomain domain;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY,
+		    cascade = {
+		        CascadeType.PERSIST,
+		        CascadeType.MERGE
+		    })
 	@JoinTable(name="business_service_area")
 	@JoinColumn(name="servicearea_id")
 	private Set<ServiceArea> serviceArea;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY,
+		    cascade = {
+		        CascadeType.PERSIST,
+		        CascadeType.MERGE
+		    })
 	@JoinTable(name="business_people")
 	@JoinColumn(name="person_id")
 	private Set<Person> contactPeople = new HashSet<Person>();
