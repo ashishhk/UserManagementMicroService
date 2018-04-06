@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 import com.labgalaxy.ms.usermanagement.model.DomainObject;
 import com.labgalaxy.ms.usermanagement.model.user.Person;
 
@@ -38,6 +40,7 @@ public class BusinessGroup extends DomainObject implements Serializable {
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="businessgroup_people")
 	@JoinColumn(name="person_id")
+	@Cascade(value = org.hibernate.annotations.CascadeType.MERGE)
 	private Set<Person> contactPeople = new HashSet<Person>();
 	
 	@OneToMany(cascade=CascadeType.ALL)

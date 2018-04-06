@@ -18,7 +18,6 @@ class ShowUsers extends Component {
       cache:false,
       success: function(data){
           this.setState({users:data},function(){
-          console.log("hello");
         });
       }.bind(this),
       error: function(xhr,status,error){
@@ -63,7 +62,7 @@ class ShowUsers extends Component {
     if(this.state.users){
         users= this.state.users.map(user => {
           return(
-            <div><User key={user.userName} handleDelete={this.handleDelete.bind(this)} user={user}/></div>
+            <div key={user.userName}><User  handleDelete={this.handleDelete.bind(this)} user={user}/></div>
           );
         });
     }

@@ -45,6 +45,7 @@ public class UserController {
 		return new Person();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/getByUserName/{userName}")
 	public User getUserById(@PathVariable(value = "userName") String userName) {
 		return userService.findByUserName(userName);
@@ -66,7 +67,7 @@ public class UserController {
 		userService.removeById(userId);
 	}
 
-	@CrossOrigin(origins = "http://localhost:3001")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/getAll")
 	public Collection<User> getAllUsers() {
 		return userService.findAll();

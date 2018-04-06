@@ -13,6 +13,7 @@ class BusinessGroup extends Component {
   }
   
   render() {
+    //console.log(this.props.businessGroup.basicDetails);
     return (
         <div>
             <BasicDetail basicDetails={this.props.businessGroup.basicDetails}/>

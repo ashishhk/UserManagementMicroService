@@ -19,7 +19,7 @@ public class BusinessGroupServiceImpl implements BusinessGroupService {
 	public BusinessGroup save(BusinessGroup businessGroup) {
 		businessGroupRepo.save(businessGroup);
 		return null;
-	}
+	}	
 
 	@Override
 	public void remove(BusinessGroup object) {

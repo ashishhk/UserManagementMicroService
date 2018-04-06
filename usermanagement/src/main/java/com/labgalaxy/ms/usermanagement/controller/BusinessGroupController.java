@@ -29,12 +29,13 @@ public class BusinessGroupController {
 		return Message.DEFAULT_MESSAGE_TEST;
 	}
 
+	//@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/create")
 	public BusinessGroup createBusinessGroup(@Valid @RequestBody BusinessGroup group) {
 		return businessGroupService.save(group);
 	}
 
-	@CrossOrigin(origins = "http://localhost:3001")
+	//@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/getById/{id}")
 	public BusinessGroup getBusinessGroupById(@PathVariable(value = "id") Long groupId) {
 		return businessGroupService.findById(groupId);

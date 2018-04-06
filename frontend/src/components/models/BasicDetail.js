@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
 class BasicDetail extends Component {
+constructor(props){
+    super(props);
+}
+componentWillMount(){
     
-componentDidMount(){
-    console.log(this.props.basicDetails);
 }
 render() {
+    // console.log(this.props.basicDetails);
     return (
-        <li>Business Name {this.props.basicDetails.name} Description {this.props.basicDetails.description}</li>
+        <li>Business Name {this.props.basicDetails}</li>
     );
   }
 }
