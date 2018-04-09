@@ -11,7 +11,7 @@ class BusinessUserPanel extends Component {
       <div className="BusinessUserPanel">
         <div>
             <h3>BusinessUserPanel</h3>
-            <ShowUsers/>
+            {/* <ShowUsers/> */}
             <ShowBusinesses/>
         </div>
       </div>

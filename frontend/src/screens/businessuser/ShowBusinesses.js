@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BusinessGroup from "../../components/models/BusinessGroup";
+import CreateBusinessGroup from "./CreateBusinessGroup";
 import $ from 'jquery';
 
 class ShowBusinesses extends Component {
@@ -39,16 +40,15 @@ class ShowBusinesses extends Component {
     this.props.handleDelete(id);
   }
   render() {
-    var businessGroupDiv;
+    var businessGroupDiv = <CreateBusinessGroup />;
     if(this.state.businessGroup.basicDetails) {
       businessGroupDiv = <BusinessGroup businessGroup={this.state.businessGroup}/>;
     }
     return (
       <div className="ShowBusinesses">
         <div>
-            <h3>Your Business List</h3>
+        <h3>XXXXXXX</h3>
             {businessGroupDiv}
-              
         </div>
       </div>
     );
