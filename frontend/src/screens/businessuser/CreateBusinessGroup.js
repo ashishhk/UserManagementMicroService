@@ -17,22 +17,20 @@ class CreateBusinessGroup extends Component {
                 basicDetails: {
                     name: this.refs.businessName,
                     description: this.refs.description,
-                    contact: [
+                    contact: [{
                         contact: this.refs.contact,
                         type:  this.refs.type,
-                    ],
-                    address: [
+                    }],
+                    address: [{
                         addressLine: this.refs.addressLine,
                         city: this.refs.city,
                         pincode: this.refs.pincode,
                         state: this.refs.state,
                         country: this.refs.country,
                         type: this.refs.type
-                    ]
+                    }]
                 }
             }
-        }, function () {
-            this.props.addUser(this.state.newUser);
         });
         e.preventDefault();
     }
