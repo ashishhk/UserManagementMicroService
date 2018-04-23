@@ -1,0 +1,17 @@
+.Footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    vertical-align: bottom;
+    background-color:black;
+    text-decoration-color: white;
+    -webkit-text-fill-color: white;
+    border: solid;
+    border-radius: 0%;
+}
+
+.Header {
+    margin-bottom: 16px;
+}
