@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/AuxComponent';
 import ShowUsers from '../User/ShowUsers';
 import ShowBusinesses from './ShowBusinesses';
+import classes from './Business.css';
 import $ from 'jquery';
 
 class BusinessUserPanel extends Component {
@@ -33,7 +34,6 @@ class BusinessUserPanel extends Component {
   componentWillMount() {
     this.init();
   }
-
   handleDelete(id) {
     this.props.handleDelete(id);
   }
@@ -41,15 +41,15 @@ class BusinessUserPanel extends Component {
     this.props.handleDelete(id);
   }
   render() {
-    var showBusinesses;
-    if(this.state.businessGroup){
+    let showBusinesses;
+    if(this.state.businessGroup.basicDetails){
       showBusinesses=<ShowBusinesses businessGroup={this.state.businessGroup}/>;
     }
     return (
-      <Aux className="BusinessUserPanel">
+      <Aux className={classes.Center}>
         <h3>BusinessUserPanel</h3>
-        {/* <ShowUsers/> */}
         {showBusinesses}
+        < ShowUsers className={classes.UserSection}/>
       </Aux>
     );
   }

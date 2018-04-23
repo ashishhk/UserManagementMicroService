@@ -1,5 +1,51 @@
 .BasicDetailsCards{
-    width: 400px;
-    height: 300px;
+    border: solid gray;
+    width: 200px;
+    height: 200px;
     margin: 16px 16px 16px 16px;
+    position: relative;
+    display: inline-block;
 }
+
+.PlusSign {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color:gray;
+    position: relative;
+    display: inline-block;
+    margin: 50px 50px
+
+    
+}
+  .PlusSign::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    height: 10px;
+    margin-top: -5px;
+    top: 50%;
+    left: 5px;
+    right: 5px;
+    z-index: 9;
+  }
+  .PlusSign::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 10px;
+    margin-left: -5px;
+    left: 50%;
+    top: 5px;
+    bottom: 5px;
+    z-index: 9;
+  }
+
+.BusinessSection{
+    width:70%;
+    height: 100%;
+    margin: 16px 16px 16px 16px;
+    border: solid darkslategray;
+  }

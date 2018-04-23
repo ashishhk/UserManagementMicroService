@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import BasicDetail from "./BasicDetail";
+import Aux from '../../hoc/AuxComponent';
+import Business from './Business';
+import classes from './Models.css';
 
-class BusinessGroup extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-        userName: "DEFAULT_USER"
-    }
-  }
-  componentDidMount(){
-   
-  }
-  
+const BusinessGroup =(props) => ( {
   render() {
-    //console.log(this.props.businessGroup.basicDetails);
+    let businesses;
+    if(props.businessGroup.businesses){
+      businesses=props.businessGroup.businesses.map(business =>(
+        <Business business={business}/>
+      ));
+    }
     return (
-            <BasicDetail basicDetails={this.props.businessGroup.basicDetails}/>
+      <Aux className={classes.BusinessSection}>      
+        <BasicDetail basicDetails={props.businessGroup.basicDetails}/>
+        {businesses}
+        <div className={classes.PlusSign} />
+      </Aux>
     );
   }
-}
+});
 
 export default BusinessGroup;

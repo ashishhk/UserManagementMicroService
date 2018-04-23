@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import User from "../../components/models/User";
 import $ from 'jquery';
+import classes from './User.css';
 
 class ShowUsers extends Component {
   constructor(){
@@ -67,7 +68,7 @@ class ShowUsers extends Component {
         });
     }
     return (
-      <div className="ShowUsers">
+      <div className={classes.UserSection}>
         <div>
             <h3>Users</h3>
             {users}

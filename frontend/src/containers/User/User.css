@@ -1,0 +1,9 @@
+.UserSection{
+  right: 0px;
+  width:30%;
+  margin: 16px 16px 16px 16px;
+  border-top: solid darkslategray; 
+  display: inline-block;
+  vertical-align: top;
+  position: absolute; 
+}
