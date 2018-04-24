@@ -1,0 +1,12 @@
+.LoginWindow{
+    width: 100px;
+    height: 100%;
+    margin: auto;
+}
+
+.CenterButtonBlock{
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    bottom: 30%;
+}

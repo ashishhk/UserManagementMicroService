@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/AuxComponent';
-import ShowUsers from '../User/ShowUsers';
-import ShowBusinesses from './ShowBusinesses';
-import classes from './Business.css';
+import ShowUsers from '../../components/User/ShowUsers';
+import ShowBusinesses from '../../components/Business/ShowBusinesses';
+import CreateBusinessGroup from "../../components/Business/CreateBusinessGroup";
 import $ from 'jquery';
 
-class BusinessUserPanel extends Component {
+class BusinessDashboard extends Component {
   constructor() {
     super();
     this.state = {
@@ -41,18 +41,18 @@ class BusinessUserPanel extends Component {
     this.props.handleDelete(id);
   }
   render() {
-    let showBusinesses;
+    let showBusinesses = <CreateBusinessGroup />;
     if(this.state.businessGroup.basicDetails){
       showBusinesses=<ShowBusinesses businessGroup={this.state.businessGroup}/>;
     }
     return (
-      <Aux className={classes.Center}>
-        <h3>BusinessUserPanel</h3>
+      <Aux>
+        <h3>BusinessDashboard</h3>
         {showBusinesses}
-        < ShowUsers className={classes.UserSection}/>
+        < ShowUsers/>
       </Aux>
     );
   }
 }
 
-export default BusinessUserPanel;
+export default BusinessDashboard;
